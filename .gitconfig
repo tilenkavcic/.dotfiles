@@ -1,0 +1,5 @@
+[user]
+	name = Tilen Kavčič
+	email = tilen.kavcic@outlook.com
+[credential]
+	helper = wincred
