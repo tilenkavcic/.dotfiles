@@ -24,7 +24,7 @@ alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
 alias search='sudo apt search'
 alias sola='cd ~/Sola/2.letnik/ && ls'
-alias bashrc='code ~/.bashrc'
+alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
 alias karfjolca='cd ~/Dev/Karfjolca && code .'
 alias home='cd ~'
 # Search files in the current folder
