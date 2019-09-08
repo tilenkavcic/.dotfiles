@@ -97,6 +97,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.inputrc ]; then
+    . ~/.inputrc
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -127,7 +131,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Extract anything
-function extract {
+extract () {
     if [ -z "$1" ]; then
         # display usage if no parameters given
         echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
@@ -163,6 +167,21 @@ function extract {
     fi
 }
 
+# Goes up a specified number of directories  (i.e. $ up 4)
+up () {
+    local d=""
+    limit=$1
+    for ((i=1 ; i <= limit ; i++))
+    do
+        d=$d/..
+    done
+    d=$(echo $d | sed 's/^\///')
+    if [ -z "$d" ]; then
+        d=..
+    fi
+    cd $d
+}
+
 # Make dir and cd into it
 mcd () {
     mkdir -p $1
@@ -171,13 +190,12 @@ mcd () {
 
 # Take your .bashrc with you
 # Run it as follows: sshs user@server
-sshs() {
+sshs () {
     ssh $@ "cat > /tmp/.bashrc_temp" < ~/.bashrc_remote
     ssh -t $@ "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
 }
 
-function ips ()
-{
+ips () {
     about 'display all ip addresses for this host'
     group 'base'
     if command -v ifconfig &>/dev/null
@@ -191,8 +209,7 @@ function ips ()
     fi
 }
 
-function passgen ()
-{
+passgen () {
     about 'generates random password from dictionary words'
     param 'optional integer length'
     param 'if unset, defaults to 4'
@@ -205,7 +222,7 @@ function passgen ()
     echo "Without (use this as the password): $(echo $pass | tr -d ' ')"
 }
 
-function add_ssh () {
+add_ssh () {
     about 'add entry to ssh config'
     param '1: host'
     param '2: hostname'
@@ -215,14 +232,14 @@ function add_ssh () {
     echo -en "\n\nHost $1\n  HostName $2\n  User $3\n  ServerAliveInterval 30\n  ServerAliveCountMax 120" >> ~/.ssh/config
 }
 
-function sshlist() {
+sshlist() {
     about 'list hosts defined in ssh config'
     group 'ssh'
     
     awk '$1 ~ /Host$/ {for (i=2; i<=NF; i++) print $i}' ~/.ssh/config
 }
 
-function ssh-add-all() {
+ssh-add-all() {
     about 'add all ssh private keys to agent'
     group 'ssh'
     

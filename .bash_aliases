@@ -26,6 +26,7 @@ alias search='sudo apt search'
 alias sola='cd ~/Sola/2.letnik/ && ls'
 alias bashrc='code ~/.bashrc'
 alias karfjolca='cd ~/Dev/Karfjolca && code .'
+alias home='cd ~'
 # Search files in the current folder
 alias f='find . | grep'
 
@@ -43,20 +44,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cd..='cd ..'
-# Goes up a specified number of directories  (i.e. $ up 4)
-up () {
-    local d=""
-    limit=$1
-    for ((i=1 ; i <= limit ; i++))
-    do
-        d=$d/..
-    done
-    d=$(echo $d | sed 's/^\///')
-    if [ -z "$d" ]; then
-        d=..
-    fi
-    cd $d
-}
+
 #cd to previous directory
 alias bd='cd "$OLDPWD"'
 

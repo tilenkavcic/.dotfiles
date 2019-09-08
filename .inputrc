@@ -1,0 +1,2 @@
+# Maps Ctrl+Backspace to Ctrl+W <- deletes previous word
+"\C-H":"\C-W"
