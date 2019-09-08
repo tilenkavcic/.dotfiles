@@ -1,6 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -44,7 +43,6 @@ esac
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
-
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
         # We have color support; assume it's compliant with Ecma-48
@@ -88,14 +86,13 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+#       sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -114,99 +111,6 @@ fi
 
 # --------------------------------
 
-
-# To temporarily bypass an alias, we preceed the command with a \
-# EG: the ls command is aliased, but to use the normal ls command you would type \ls
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-alias sl='ls'
-alias ll='ls -lhA'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Dark-mode, light-mode
-alias darkMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark;
-gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/dark.jpg'
-alias dark-mode=darkMode
-alias darkmode=darkMode
-alias night-mode=darkMode
-alias nightmode=darkMode
-
-alias lightMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru;
-gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/light.jpg'
-alias light-mode=lightMode
-alias day-mode=lightMode
-alias lightmode=lightMode
-alias daymode=lightMode
-
-# Shortcuts
-alias update='sudo apt -y update'
-alias upgrade='sudo apt -y update && sudo apt -y upgrade && sudo apt autoremove && exit 0'
-alias search='sudo apt search'
-alias updatej='sudo apt -y update; sudo apt -y upgrade'
-alias sola='cd ~/Sola/2.letnik/'
-alias bashrc='code ~/.bashrc'
-alias karfjolca='cd ~/Dev/Karfjolca && code .'
-
-alias CD='cd'
-alias cd.='cd ..'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias cd..='cd ..'
-# Goes up a specified number of directories  (i.e. up 4)
-up ()
-{
-    local d=""
-    limit=$1
-    for ((i=1 ; i <= limit ; i++))
-    do
-        d=$d/..
-    done
-    d=$(echo $d | sed 's/^\///')
-    if [ -z "$d" ]; then
-        d=..
-    fi
-    cd $d
-}
-
-alias mkdir="mkdir -pv"
-alias top="htop"
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -iv'
-alias cls='clear'
-#cd to previous directory
-alias bd='cd "$OLDPWD"'
-# Search files in the current folder
-alias f='find . | grep'
-# Alias's for safe and forced reboots
-alias rebootsafe='sudo shutdown -r now'
-alias rebootforce='sudo shutdown -r -n now'
-alias python='python3'
-
-# ctrl+arrows goes to the end of the word
-bind '"\e[1;5D" backward-word'
-bind '"\e[1;5C" forward-word'
-
-# Git Commands, Add and Commit are used as functions
-alias gcommall='git add -A && git commit -m'
-alias gcomm='git commit -m'
-alias gpo='git push origin master'
-alias gp='git pull'
-alias gs='git status'
-alias gd='git diff'
-alias gr='git reflog'
-alias glf='git ls-files'
-
-alias _="sudo"
-alias q='exit'
-
-# sudo editors
-alias svim="sudo vim"
-alias snano="sudo nano"
-
 # Man page colors
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -222,6 +126,7 @@ export ANDROID_HOME=$HOME/Programs/Android
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# Extract anything
 function extract {
     if [ -z "$1" ]; then
         # display usage if no parameters given
@@ -258,12 +163,13 @@ function extract {
     fi
 }
 
-# make dir and cd into it
+# Make dir and cd into it
 mcd () {
     mkdir -p $1
     cd $1
 }
 
+# Take your .bashrc with you
 # Run it as follows: sshs user@server
 sshs() {
     ssh $@ "cat > /tmp/.bashrc_temp" < ~/.bashrc_remote
@@ -284,6 +190,7 @@ function ips ()
         echo "You don't have ifconfig or ip command installed!"
     fi
 }
+
 function passgen ()
 {
     about 'generates random password from dictionary words'
@@ -322,21 +229,6 @@ function ssh-add-all() {
     grep -slR "PRIVATE" ~/.ssh | xargs ssh-add
 }
 
-# bash prompt theme
+# bash prompt theme attempt
 # source "${HOME}/.bash_theme.bash"
-
-########################################################## bash-it #######################
-
-
-# Path to the bash it configuration
-export BASH_IT="/home/tilen/.bash_it"
-
-# Leave empty to disable theming.
-# location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
-
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@github.com:tilenkavcic'
-
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
+eval "$(starship init bash)"
