@@ -1,0 +1,104 @@
+[global_config]
+  title_hide_sizetext = True
+  suppress_multiple_term_dialog = True
+  title_font = Hack 9
+[keybindings]
+  paste = <Primary>v
+  search = <Primary>f
+[profiles]
+  [[default]]
+    background_color = "#0b0b0b"
+    background_darkness = 0.91
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    font = Hack 12
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 960:24
+      maximised = False
+      fullscreen = False
+      size = 960, 1019
+      title = tilen@Mek-Buk-Pro: ~
+      last_active_term = a547ebd9-1ef4-43e8-99bf-14b13b336ab2
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 510
+      ratio = 0.5029585798816568
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = a547ebd9-1ef4-43e8-99bf-14b13b336ab2
+    [[[child3]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 478
+      ratio = 0.5005235602094241
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = eb6a780b-bcd1-411e-ba5a-d5cf5e7bf0f1
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = 272c07a8-ecd6-4357-ad02-5d76ef351953
+  [[fullscreen]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 7b92c487-d261-42a4-a19e-89b200a42e5c
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:27
+      size = 1920, 1016
+      title = tilen@Mek-Buk-Pro: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 991
+      ratio = 0.517493472585
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 506
+      ratio = 0.500494559842
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 7b92c487-d261-42a4-a19e-89b200a42e5c
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 1d71ad12-04d3-4a58-9ed8-8164db0be5b5
+    [[[terminal5]]]
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = a547ebd9-1ef4-43e8-99bf-14b13b336ab2
+[plugins]
