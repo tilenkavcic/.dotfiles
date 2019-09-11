@@ -27,6 +27,7 @@ alias sola='cd ~/Sola/2.letnik/ && ls'
 alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
 alias karfjolca='cd ~/Dev/Karfjolca && code .'
 alias home='cd ~'
+alias raspi='ssh pi@192.168.1.18'
 # Search files in the current folder
 alias f='find . | grep'
 

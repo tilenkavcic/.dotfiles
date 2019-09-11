@@ -97,9 +97,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.inputrc ]; then
-    . ~/.inputrc
-fi
+# if [ -f ~/.inputrc ]; then
+#     . ~/.inputrc
+# fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
