@@ -124,12 +124,6 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-# PATH
-export PATH="$PATH:~/Dev/Flutter/flutter/bin"
-export ANDROID_HOME=$HOME/Programs/Android
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 # Extract anything
 extract () {
     if [ -z "$1" ]; then
@@ -233,6 +227,15 @@ ssh-add-all() {
     grep -slR "PRIVATE" ~/.ssh | xargs ssh-add
 }
 
+# PATH
+export PATH="$PATH:~/Dev/Flutter/flutter/bin"
+export ANDROID_HOME=$HOME/Programs/Android
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 # bash prompt theme attempt
 # source "${HOME}/.bash_theme.bash"
 eval "$(starship init bash)"
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/Programs/dart-sass:$PATH"
