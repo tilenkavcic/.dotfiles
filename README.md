@@ -1,3 +1,3 @@
 # Dotfiles
 
-Every dotfile I changed goes here.
+Every dotfile I change goes here.
