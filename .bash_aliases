@@ -9,7 +9,7 @@ alias dark-mode=darkMode
 alias darkmode=darkMode
 alias night-mode=darkMode
 alias nightmode=darkMode
-alias lightMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru;
+alias lightMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru-light;
 gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/light.jpg'
 alias light-mode=lightMode
 alias day-mode=lightMode
