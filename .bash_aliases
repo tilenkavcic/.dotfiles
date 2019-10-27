@@ -32,10 +32,14 @@ alias raspi='ssh pi@192.168.1.18'
 alias f='find . | grep'
 
 # LS aliases
+alias ls='ls --color=auto'
 alias sl='ls'
 alias ll='ls -lhA'
 alias la='ls -A'
 alias l='ls -CF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # CD aliases
 alias CD='cd'
@@ -45,10 +49,11 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cd..='cd ..'
-
-#cd to previous directory
+# CD to previous directory
 alias bd='cd "$OLDPWD"'
 
+# App aliases
+alias cat="bat"
 alias mkdir="mkdir -pv"
 alias top="htop"
 alias cp='cp -i'
@@ -56,6 +61,7 @@ alias mv='mv -i'
 alias rm='rm -iv'
 alias cls='clear'
 alias python='python3'
+alias chrome='google-chrome'
 alias _="sudo"
 alias q='exit'
 # sudo editors
