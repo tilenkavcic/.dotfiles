@@ -81,3 +81,5 @@ alias gs='git status'
 alias gd='git diff'
 alias gr='git reflog'
 alias glf='git ls-files'
+ 
+alias ls-size="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"

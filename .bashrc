@@ -206,5 +206,5 @@ export PATH="$HOME/Programs/dart-sass:$PATH"
 export PATH="$HOME/Programs/IntelliJ-IDEA-Ultimate/bin:$PATH"
 # bash prompt theme attempt
 # source "${HOME}/.bash_theme.bash"
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 # Install Ruby Gems to ~/gems
