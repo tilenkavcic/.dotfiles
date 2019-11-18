@@ -67,6 +67,7 @@ alias q='exit'
 # sudo editors
 alias svim="sudo vim"
 alias snano="sudo nano"
+alias open="xdg-open"
 
 # ctrl+arrows goes to the end of the word
 bind '"\e[1;5D" backward-word'
