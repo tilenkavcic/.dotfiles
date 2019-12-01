@@ -1,5 +1,7 @@
-# To temporarily bypass an alias, we preceed the command with a \
+# To temporarily bypass an alias, preceed the command with a \
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
+
+# Manage dotfiles in ~/.dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Dark-mode, light-mode
@@ -43,6 +45,7 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias ls-size="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"
 
 # CD aliases
 alias CD='cd'
@@ -52,8 +55,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cd..='cd ..'
-# CD to previous directory
-alias bd='cd "$OLDPWD"'
+alias bd='cd "$OLDPWD"' # CD to previous directory
 
 # App aliases
 alias cat="bat"
@@ -65,12 +67,12 @@ alias rm='rm -iv'
 alias cls='clear'
 alias python='python3'
 alias chrome='google-chrome'
+alias open="xdg-open"
 alias _="sudo"
 alias q='exit'
 # sudo editors
 alias svim="sudo vim"
 alias snano="sudo nano"
-alias open="xdg-open"
 
 # ctrl+arrows goes to the end of the word
 bind '"\e[1;5D" backward-word'
@@ -86,4 +88,3 @@ alias gd='git diff'
 alias gr='git reflog'
 alias glf='git ls-files'
  
-alias ls-size="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"

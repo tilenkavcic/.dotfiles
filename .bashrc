@@ -195,7 +195,7 @@ ssh-add-all() {
     grep -slR "PRIVATE" ~/.ssh | xargs ssh-add
 }
 
-# Starchip
+# Starchip init
 eval "$(starship init bash)"
 
 # PATH
