@@ -4,6 +4,10 @@
 # Manage dotfiles in ~/.dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Makes it so that ctrl+arrows moves the cursor to the end of the current word
+bind '"\e[1;5D" backward-word'
+bind '"\e[1;5C" forward-word'
+
 # Dark-mode, light-mode
 alias darkMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark;
 gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/dark.jpg'
@@ -18,23 +22,23 @@ alias day-mode=lightMode
 alias lightmode=lightMode
 alias daymode=lightMode
 
-# Shortcuts
-alias updatej='sudo apt -y update; sudo apt -y upgrade'
-alias update='sudo apt -y update'
-alias upgrade='sudo apt -y update && sudo apt -y upgrade && sudo apt autoremove'
-alias upgradeq='upgrade && q'
-alias rebootsafe='sudo shutdown -r now'
-alias rebootforce='sudo shutdown -r -n now'
-alias search='sudo apt search'
-alias sola='cd ~/Sola/2.letnik/ && ls'
-alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
-alias karfjolca-dir='cd ~/Dev/Karfjolca'
-alias karfjolca='karfjolca-dir && ghost start && karfjolca-dir && code . && cd content/themes/liebling/src && yarn watch'
-alias karfjolca-stop='karfjolca-dir && ghost stop'
-alias home='cd ~'
-alias raspi='ssh pi@192.168.1.18'
-# Search files in the current folder
-alias f='find . | grep'
+# General program aliases
+alias cat="bat"
+alias mkdir="mkdir -pv"
+alias top="htop"
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -iv'
+alias cls='clear'
+alias python='python3'
+alias chrome='google-chrome'
+alias open="xdg-open"
+alias _="sudo"
+alias q='exit'
+alias findrec='find . -name'
+# sudo editors
+alias svim="sudo vim"
+alias snano="sudo nano"
 
 # LS aliases
 alias ls='ls --color=auto'
@@ -57,27 +61,6 @@ alias .....='cd ../../../..'
 alias cd..='cd ..'
 alias bd='cd "$OLDPWD"' # CD to previous directory
 
-# App aliases
-alias cat="bat"
-alias mkdir="mkdir -pv"
-alias top="htop"
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -iv'
-alias cls='clear'
-alias python='python3'
-alias chrome='google-chrome'
-alias open="xdg-open"
-alias _="sudo"
-alias q='exit'
-# sudo editors
-alias svim="sudo vim"
-alias snano="sudo nano"
-
-# ctrl+arrows goes to the end of the word
-bind '"\e[1;5D" backward-word'
-bind '"\e[1;5C" forward-word'
-
 # Git Commands, Add and Commit are used as functions
 alias gcommall='git add -A && git commit -m'
 alias gcomm='git commit -m'
@@ -87,4 +70,22 @@ alias gs='git status'
 alias gd='git diff'
 alias gr='git reflog'
 alias glf='git ls-files'
- 
+
+# General shortcuts
+alias updatej='sudo apt -y update; sudo apt -y upgrade'
+alias update='sudo apt -y update'
+alias upgrade='sudo apt -y update && sudo apt -y upgrade && sudo apt autoremove'
+alias upgradeq='upgrade && q'
+alias rebootsafe='sudo shutdown -r now'
+alias restartsafe=rebootsafe
+alias rebootforce='sudo shutdown -r -n now'
+alias search='sudo apt search'
+alias sola='cd ~/Sola/2.letnik/ && ls'
+alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
+alias karfjolca-dir='cd ~/Dev/Karfjolca'
+alias karfjolca='karfjolca-dir && ghost start && karfjolca-dir && code . && cd content/themes/liebling/src && yarn watch'
+alias karfjolca-stop='karfjolca-dir && ghost stop'
+alias home='cd ~'
+alias raspi='ssh pi@192.168.1.18'
+# Search files in the current folder
+alias f='find . | grep'
