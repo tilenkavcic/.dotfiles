@@ -11,15 +11,13 @@ bind '"\e[1;5C" forward-word'
 # Dark-mode, light-mode
 alias darkMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark;
 gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/dark.jpg'
-alias dark-mode=darkMode
 alias darkmode=darkMode
-alias night-mode=darkMode
+alias nightMode=darkMode
 alias nightmode=darkMode
 alias lightMode='gsettings set org.gnome.desktop.interface gtk-theme Yaru-light;
 gsettings set org.gnome.desktop.background picture-uri file:///home/tilen/Pictures/wallpapers/light.jpg'
-alias light-mode=lightMode
-alias day-mode=lightMode
 alias lightmode=lightMode
+alias dayMode=lightMode
 alias daymode=lightMode
 
 # General program aliases
@@ -35,6 +33,8 @@ alias chrome='google-chrome'
 alias open="xdg-open"
 alias _="sudo"
 alias q='exit'
+# Search files in the current folder
+alias f='find . | grep'
 alias findrec='find . -name'
 # sudo editors
 alias svim="sudo vim"
@@ -49,7 +49,7 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ls-size="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"
+alias lsSize="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"
 
 # CD aliases
 alias CD='cd'
@@ -76,16 +76,17 @@ alias updatej='sudo apt -y update; sudo apt -y upgrade'
 alias update='sudo apt -y update'
 alias upgrade='sudo apt -y update && sudo apt -y upgrade && sudo apt autoremove'
 alias upgradeq='upgrade && q'
-alias rebootsafe='sudo shutdown -r now'
-alias restartsafe=rebootsafe
-alias rebootforce='sudo shutdown -r -n now'
+alias rebootSafe='sudo shutdown -r now'
+alias restartSafe=rebootSafe
+alias rebootForce='sudo shutdown -r -n now'
 alias search='sudo apt search'
 alias sola='cd ~/Sola/2.letnik/ && ls'
 alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
-alias karfjolca-dir='cd ~/Dev/Karfjolca'
-alias karfjolca='karfjolca-dir && ghost start && karfjolca-dir && code . && cd content/themes/liebling/src && yarn watch'
-alias karfjolca-stop='karfjolca-dir && ghost stop'
+alias karfjolcaDir='cd ~/Dev/Karfjolca'
+alias karfjolcaDev='karfjolcaDir && ghost start && karfjolcaDir && code . && cd content/themes/liebling/src && yarn watch'
+alias karfjolcaStop='karfjolcaDir && ghost stop && bd'
 alias home='cd ~'
 alias raspi='ssh pi@192.168.1.18'
-# Search files in the current folder
-alias f='find . | grep'
+alias spotifyDir='cd ~/Dev/Spotify-to-Apple-Music'
+alias spotifyDev='spotifyDir && code . && npm install && npm start'
+alias dnDev='sola && cd DN-2-letnik/APS1 && open Druga\ seminarska\ naloga.pdf && cd Seminarska_08 && code . && q'
