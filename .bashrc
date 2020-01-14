@@ -193,6 +193,11 @@ ssh-add-all() {
     grep -slR "PRIVATE" ~/.ssh | xargs ssh-add
 }
 
+lcd() {
+    cd $1
+    ls
+}
+
 # Starchip init
 eval "$(starship init bash)"
 
