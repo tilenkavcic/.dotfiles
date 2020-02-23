@@ -21,7 +21,6 @@ alias dayMode=lightMode
 alias daymode=lightMode
 
 # General program aliases
-alias cat="bat"
 alias mkdir="mkdir -pv"
 alias top="htop"
 alias cp='cp -i'
