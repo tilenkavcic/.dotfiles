@@ -1,3 +1,4 @@
+#!/bin/bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -91,7 +92,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Extract anything
-extract () {
+extract() {
     if [ -z "$1" ]; then
         # display usage if no parameters given
         echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
@@ -128,7 +129,7 @@ extract () {
 }
 
 # Goes up a specified number of directories  (i.e. $ up 4)
-up () {
+up() {
     local d=""
     limit=$1
     for ((i=1 ; i <= limit ; i++))
@@ -143,13 +144,13 @@ up () {
 }
 
 # Make dir and cd into it
-mcd () {
+mcd() {
     mkdir -p $1
     cd $1
 }
 
 # Take your .bashrc with you
-sshs () {
+sshs() {
     if [ -z "$1" ]; then 
         echo "Usage: sshs user@server"
         return 1
@@ -158,7 +159,7 @@ sshs () {
     ssh -t $@ "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
 }
 
-ips () {
+ips() {
     about 'display all ip addresses for this host'
     group 'base'
     if command -v ifconfig &>/dev/null
@@ -172,7 +173,7 @@ ips () {
     fi
 }
 
-add_ssh () {
+add_ssh() {
     about 'add entry to ssh config'
     param '1: host'
     param '2: hostname'
@@ -210,6 +211,8 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 export PATH="$HOME/Programs/dart-sass:$PATH"
 export PATH="$HOME/Programs/IntelliJ-IDEA-Ultimate/bin:$PATH"
+export PATH="/usr/local/MATLAB/R2019b/bin:$PATH"
+
 # bash prompt theme attempt
 # source "${HOME}/.bash_theme.bash"
 # Install Ruby Gems to ~/gems

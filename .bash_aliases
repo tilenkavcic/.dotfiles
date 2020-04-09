@@ -1,3 +1,4 @@
+#!/bin/bash
 # To temporarily bypass an alias, preceed the command with a \
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
 
@@ -22,6 +23,7 @@ alias daymode=lightMode
 
 # General program aliases
 alias mkdir="mkdir -pv"
+alias cmd="mcd" # calls function in bash_aliases
 alias top="htop"
 alias cp='cp -i'
 alias mv='mv -i'
@@ -48,7 +50,7 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias lsSize="sudo du -cha --max-depth=1 -x /var/log | grep -E \"M|G\" | sort -h"
+alias lsSize="du -cha --max-depth=1 -x . | grep -E \"M|G\" | sort -h"
 
 # CD aliases
 alias CD='cd'
@@ -71,10 +73,9 @@ alias gr='git reflog'
 alias glf='git ls-files'
 
 # General shortcuts
-alias updatej='sudo apt -y update; sudo apt -y upgrade'
 alias update='sudo apt -y update'
 alias upgrade='sudo apt -y update && sudo apt -y upgrade && sudo apt autoremove'
-alias upgradeq='upgrade && q'
+alias upgradeq='upgrade && exit'
 alias rebootSafe='sudo shutdown -r now'
 alias restartSafe=rebootSafe
 alias rebootForce='sudo shutdown -r -n now'
@@ -82,10 +83,12 @@ alias search='sudo apt search'
 alias sola='cd ~/Sola/2.letnik/ && ls'
 alias bashrc='code ~/.bashrc && code ~/.bash_aliases'
 alias karfjolcaDir='cd ~/Dev/Karfjolca'
-alias karfjolcaDev='karfjolcaDir && ghost start && karfjolcaDir && code . && cd content/themes/liebling/src && yarn watch'
+alias karfjolcaDev='karfjolcaDir && ghost start && karfjolcaDir && cd content/themes/liebling && code . && cd src && yarn watch'
 alias karfjolcaStop='karfjolcaDir && ghost stop && bd'
 alias home='cd ~'
 alias raspi='ssh pi@192.168.1.18'
 alias spotifyDir='cd ~/Dev/Spotify-to-Apple-Music'
 alias spotifyDev='spotifyDir && code . && npm install && npm start'
-alias dnDev='sola && cd DN-2-letnik/APS1 && open Druga\ seminarska\ naloga.pdf && cd Seminarska_07 && code . && q'
+alias domace='sola && cd DN-2-letnik'
+alias dnDev='sola && cd DN-2-letnik/APS2 && open Druga\ seminarska\ naloga.pdf && cd Seminarska_07 && code . && q'
+alias osTest='svn commit -m "#oddaj:Naloga1#" && sleep 40 && chmod +x Naloga1.sh && cd .. && svn update . && cd log && cat oddaja.log'
