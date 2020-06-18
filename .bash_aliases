@@ -30,9 +30,9 @@ alias mv='mv -i'
 alias rm='rm -iv'
 alias cls='clear'
 alias python='python3'
-alias chrome='google-chrome'
+alias chrome='google-chrome --force-dark-mode'
 alias open="xdg-open"
-alias _="sudo"
+# alias _="sudo"
 alias q='exit'
 # Search files in the current folder
 alias f='find . | grep'
@@ -42,11 +42,11 @@ alias svim="sudo vim"
 alias snano="sudo nano"
 
 # LS aliases
-alias ls='ls --color=auto'
+alias ls='ls -v --color=auto'
 alias sl='ls'
-alias ll='ls -lhA'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lhAv'
+alias la='ls -Av'
+alias l='ls -CFv'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -62,7 +62,7 @@ alias .....='cd ../../../..'
 alias cd..='cd ..'
 alias bd='cd "$OLDPWD"' # CD to previous directory
 
-# Git Commands, Add and Commit are used as functions
+# Git Commands
 alias gcommall='git add -A && git commit -m'
 alias gcomm='git commit -m'
 alias gpo='git push origin master'
@@ -87,8 +87,7 @@ alias karfjolcaDev='karfjolcaDir && ghost start && karfjolcaDir && cd content/th
 alias karfjolcaStop='karfjolcaDir && ghost stop && bd'
 alias home='cd ~'
 alias raspi='ssh pi@192.168.1.18'
+alias dev="cd ~/Dev && ls"
 alias spotifyDir='cd ~/Dev/Spotify-to-Apple-Music'
 alias spotifyDev='spotifyDir && code . && npm install && npm start'
 alias domace='sola && cd DN-2-letnik'
-alias dnDev='sola && cd DN-2-letnik/APS2 && open Druga\ seminarska\ naloga.pdf && cd Seminarska_07 && code . && q'
-alias osTest='svn commit -m "#oddaj:Naloga1#" && sleep 40 && chmod +x Naloga1.sh && cd .. && svn update . && cd log && cat oddaja.log'

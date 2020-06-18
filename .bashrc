@@ -145,8 +145,8 @@ up() {
 
 # Make dir and cd into it
 mcd() {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1"
 }
 
 # Take your .bashrc with you
@@ -195,7 +195,7 @@ ssh-add-all() {
 }
 
 lcd() {
-    cd $1
+    cd "$1" || exit
     ls
 }
 
@@ -212,7 +212,4 @@ export PATH="$HOME/gems/bin:$PATH"
 export PATH="$HOME/Programs/dart-sass:$PATH"
 export PATH="$HOME/Programs/IntelliJ-IDEA-Ultimate/bin:$PATH"
 export PATH="/usr/local/MATLAB/R2019b/bin:$PATH"
-
-# bash prompt theme attempt
-# source "${HOME}/.bash_theme.bash"
-# Install Ruby Gems to ~/gems
+export PATH="/home/tilen/Programs/PhpStorm/bin:$PATH"
